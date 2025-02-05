@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="User Tests Suite" parallel="tests" thread-count="2">
+
+    <test name="API Tests">
+        <classes>
+            <class name="tests.api.UserSignInTest"/>
+            <class name="tests.api.UserSignUpTest"/>
+        </classes>
+    </test>
+</suite>
