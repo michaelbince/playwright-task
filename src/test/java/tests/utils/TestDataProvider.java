@@ -15,6 +15,10 @@ public class TestDataProvider {
     private static final String VALID_USER_KEY = "validUser";
     private static final String INVALID_USER_KEY = "invalidUser";
 
+    private static final String BIO_USER_KEY = "bio";
+
+    private static final String IMAGE_USER_KEY = "image";
+
     @DataProvider(name = "validCredentials")
     public static Object[][] provideValidCredentials() {
         Map<String, String> validUser = (Map<String, String>) testData.get(VALID_USER_KEY);
@@ -37,4 +41,14 @@ public class TestDataProvider {
                 {TestDataHelper.generateUniqueEmail(), TestDataHelper.generateRandomPassword(), TestDataHelper.generateUniqueUsername()}
         };
     }
+
+    @DataProvider(name = "validCredentialsToUpdate")
+    public static Object[][] provideValidCredentialsToUpdate() {
+        Map<String, String> validUser = (Map<String, String>) testData.get(VALID_USER_KEY);
+        return new Object[][]{
+                {validUser.get(EMAIL_KEY), validUser.get(PASSWORD_KEY),
+                        validUser.get(USERNAME_KEY),validUser.get(BIO_USER_KEY), validUser.get(IMAGE_USER_KEY) }
+        };
+    }
+
 }

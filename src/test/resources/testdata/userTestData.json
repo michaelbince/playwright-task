@@ -2,7 +2,9 @@
   "validUser": {
     "username": "Tom Marvolo Riddle",
     "email": "tom_marvolo@example.com",
-    "password": "Voldemort"
+    "password": "Voldemort",
+    "bio": "I CANNOT BE NAME",
+    "image": "https://es.wikipedia.org/wiki/Lord_Voldemort#/media/Archivo:Lord_Voldemort's_Figure.jpg"
   },
   "invalidUser": {
     "email": "tom_marvolo@example.com",
