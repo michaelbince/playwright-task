@@ -11,6 +11,7 @@ public class HomePage {
     private final Locator dropdownToggle;
     private final Locator logoutButton;
     private final Locator homeButton;
+    private final Locator settingsButton;
 
     public HomePage(Page page) {
         this.page = page;
@@ -18,6 +19,7 @@ public class HomePage {
         this.dropdownToggle = page.locator("div.nav-link.dropdown-toggle");
         this.logoutButton = page.locator(".ion-log-out");
         this.homeButton = page.locator("a.navbar-brand[href='#/']");
+        this.settingsButton = page.locator(".ion-gear-a");
     }
 
     public String getLoggedInUsername() {
@@ -30,6 +32,12 @@ public class HomePage {
         logoutButton.waitFor();
         logoutButton.click();
         loggedInUser.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.HIDDEN));
+    }
+
+    public void goToSettings() {
+        dropdownToggle.click();
+        settingsButton.waitFor();
+        settingsButton.click();
     }
 
     public void goToHomePage() {
