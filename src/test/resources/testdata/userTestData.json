@@ -1,0 +1,12 @@
+{
+  "validUser": {
+    "username": "Tom Marvolo Riddle",
+    "email": "tom_marvolo@example.com",
+    "password": "Voldemort"
+  },
+  "invalidUser": {
+    "email": "tom_marvolo@example.com",
+    "password": "wrong_password",
+    "errorMessage": "Wrong email/password combination"
+  }
+}
