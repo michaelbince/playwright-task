@@ -14,7 +14,7 @@ public class UserUpdateApiClient {
         RequestSpecification request = RestAssured.given()
                 .contentType("application/json")
                 .header("Authorization", "Token " + authToken)
-                .body(new UpdateUserRequest(updatedUserData)).log().all();;
+                .body(new UpdateUserRequest(updatedUserData)).log().all();
 
         return request.when().put(USER_ENDPOINT);
     }

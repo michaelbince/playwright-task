@@ -1,7 +1,6 @@
 package tests.api;
 
 import api.client.LoginApiClient;
-import api.client.UserApiClient;
 import api.client.UserUpdateApiClient;
 import api.models.UpdateUser;
 import api.models.User;
@@ -12,14 +11,13 @@ import org.testng.annotations.Test;
 import tests.utils.TestDataProvider;
 
 public class UserUpdateTest extends APIBaseTest {
-    private UserApiClient userApiClient;
+
     private LoginApiClient loginApiClient;
 
     private UserUpdateApiClient updateClient;
 
     @BeforeClass
     public void setup() {
-        userApiClient = new UserApiClient();
         loginApiClient = new LoginApiClient();
         updateClient = new UserUpdateApiClient();
     }

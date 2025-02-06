@@ -3,6 +3,7 @@ package tests.ui;
 import com.microsoft.playwright.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import utils.BrowserFactory;
 
 public abstract class UIBaseTest {
@@ -14,7 +15,7 @@ public abstract class UIBaseTest {
 
     @BeforeClass
     @org.testng.annotations.Parameters({"browser"})
-    public void setupUI(String browserName) {
+    public void setupUI(@Optional("chromium") String browserName) {
         playwright = Playwright.create();
         browser = BrowserFactory.createBrowser(playwright, browserName);
         context = browser.newContext();

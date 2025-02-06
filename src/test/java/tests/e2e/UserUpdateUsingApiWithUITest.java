@@ -10,14 +10,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.LoginPage;
 import pages.SettingsPage;
 import tests.ui.UIBaseTest;
 import tests.utils.TestDataProvider;
 import tests.utils.JsonLocalStorageHelper;
 
 public class UserUpdateUsingApiWithUITest extends UIBaseTest {
-    private LoginPage loginPage;
     private HomePage homePage;
     private SettingsPage settingsPage;
     private LoginApiClient loginApiClient;
@@ -30,7 +28,6 @@ public class UserUpdateUsingApiWithUITest extends UIBaseTest {
     @BeforeMethod
     public void setup() {
         page = getPage();
-        loginPage = new LoginPage(page);
         homePage = new HomePage(page);
         settingsPage = new SettingsPage(page);
         loginApiClient = new LoginApiClient();
