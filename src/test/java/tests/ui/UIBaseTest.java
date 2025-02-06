@@ -14,10 +14,9 @@ public abstract class UIBaseTest {
     @BeforeClass
     public void setupUI() {
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false)); // Run in UI mode
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         context = browser.newContext();
         page = context.newPage();
-        page.navigate(baseUrl);
     }
 
     @AfterClass

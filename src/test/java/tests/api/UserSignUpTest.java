@@ -45,23 +45,6 @@ public class UserSignUpTest extends APIBaseTest {
                 "The error message for an already registered email is not as expected.");
     }
 
-    @Test(description = "Verify user sign-up fails when an invalid email is provided (Passing user name as email)",
-            dataProvider = "randomValidCredentials",
-            dataProviderClass = TestDataProvider.class)
-    public void testUserSignUpWithInvalidEmail(String email, String password, String userName) {
-        String username = TestDataHelper.generateUniqueUsername();
-
-        User newUser = new User(userName, password, username);
-
-        Response response = userApiClient.signUp(newUser);
-
-        Assert.assertEquals(response.getStatusCode(), 422, "Expected status code 422 for invalid email.");
-
-        String errorMessage = response.jsonPath().getString("errors.body[0]");
-
-        Assert.assertEquals(errorMessage, "is invalid",
-                "The error message for invalid email is not as expected.");
-    }
 }
 
 

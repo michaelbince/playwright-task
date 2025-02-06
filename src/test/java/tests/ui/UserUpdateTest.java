@@ -27,6 +27,7 @@ public class UserUpdateTest extends UIBaseTest {
             dataProvider = "validCredentialsToUpdate",
             dataProviderClass = TestDataProvider.class)
     public void testUpdateUserProfile(String email, String password, String userName, String bio, String image) {
+        page.navigate(baseUrl);
         loginPage.goToLoginPage();
         loginPage.login(email, password);
         homePage.goToSettings();

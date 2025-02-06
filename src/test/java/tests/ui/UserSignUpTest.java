@@ -24,6 +24,7 @@ public class UserSignUpTest extends UIBaseTest {
             dataProvider = "randomValidCredentials",
             dataProviderClass = TestDataProvider.class)
     public void testSuccessfulSignUp(String email, String password, String userName) {
+        page.navigate(baseUrl);
         signUpPage.goToSignUpPage();
         signUpPage.signUp(userName, email, password);
 

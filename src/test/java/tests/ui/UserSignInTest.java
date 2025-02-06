@@ -24,6 +24,7 @@ public class UserSignInTest extends UIBaseTest {
             dataProvider = "validCredentials",
             dataProviderClass = TestDataProvider.class)
     public void testSuccessfulLogin(String email, String password, String expectedUserName) {
+        page.navigate(baseUrl);
         loginPage.goToLoginPage();
         loginPage.login(email, password);
 
@@ -37,6 +38,7 @@ public class UserSignInTest extends UIBaseTest {
             dataProvider = "invalidCredentials",
             dataProviderClass = TestDataProvider.class)
     public void testFailedLogin(String email, String password, String invalidCredentialsError) {
+        page.navigate(baseUrl);
         loginPage.goToLoginPage();
         loginPage.login(email, password);
         String errorMessage = loginPage.getErrorMessage();
