@@ -9,12 +9,24 @@
         </classes>
     </test>
 
-    <test name="UI Tests">
+    <test name="UI Tests - Chrome">
+        <parameter name="browser" value="chromium"/>
         <classes>
             <class name="tests.ui.UserSignInTest"/>
             <class name="tests.ui.UserSignUpTest"/>
             <class name="tests.ui.UserUpdateTest"/>
-            <class name="tests.e2e.UserSettingsTest"/>
+            <class name="tests.e2e.UserUpdateUsingApiWithUITest"/>
         </classes>
     </test>
+
+    <test name="UI Tests - Firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.ui.UserSignInTest"/>
+            <class name="tests.ui.UserSignUpTest"/>
+            <class name="tests.ui.UserUpdateTest"/>
+            <class name="tests.e2e.UserUpdateUsingApiWithUITest"/>
+        </classes>
+    </test>
+
 </suite>

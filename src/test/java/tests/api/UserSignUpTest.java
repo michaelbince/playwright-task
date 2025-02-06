@@ -6,7 +6,6 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import tests.utils.TestDataHelper;
 import tests.utils.TestDataProvider;
 
 public class UserSignUpTest extends APIBaseTest {

@@ -3,6 +3,7 @@ package tests.ui;
 import com.microsoft.playwright.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import utils.BrowserFactory;
 
 public abstract class UIBaseTest {
     protected static final String baseUrl = "https://conduit-realworld-example-app.fly.dev";
@@ -12,9 +13,10 @@ public abstract class UIBaseTest {
     protected Page page;
 
     @BeforeClass
-    public void setupUI() {
+    @org.testng.annotations.Parameters({"browser"})
+    public void setupUI(String browserName) {
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browser = BrowserFactory.createBrowser(playwright, browserName);
         context = browser.newContext();
         page = context.newPage();
     }

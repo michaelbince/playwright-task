@@ -1,7 +1,10 @@
 package tests.e2e;
 
+import api.client.LoginApiClient;
+import api.models.User;
 import com.microsoft.playwright.Page;
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -13,10 +16,11 @@ import tests.ui.UIBaseTest;
 import tests.utils.TestDataProvider;
 import tests.utils.JsonLocalStorageHelper;
 
-public class UserSettingsTest extends UIBaseTest {
+public class UserUpdateUsingApiWithUITest extends UIBaseTest {
     private LoginPage loginPage;
     private HomePage homePage;
     private SettingsPage settingsPage;
+    private LoginApiClient loginApiClient;
     private Page page;
 
     @BeforeClass
@@ -29,15 +33,22 @@ public class UserSettingsTest extends UIBaseTest {
         loginPage = new LoginPage(page);
         homePage = new HomePage(page);
         settingsPage = new SettingsPage(page);
+        loginApiClient = new LoginApiClient();
     }
 
     @Test(description = "Verify user can update all their profile information",
             dataProvider = "validCredentialsToUpdate",
             dataProviderClass = TestDataProvider.class)
     public void testUpdateUserProfile(String email, String password, String userName, String bio, String image) throws Exception {
+        User existingUser = new User(email, password, userName);
+        Response loginResponse = loginApiClient.login(existingUser);
+        Assert.assertEquals(loginResponse.getStatusCode(), 200, "Login request should return status code 200.");
+        String authToken = loginResponse.jsonPath().getString("user.token");
+
         page.navigate(baseUrl);
-        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRvbV9tYXJ2b2xvQGV4YW1wbGUuY29tIiwiaWF0IjoxNzM4NzkyOTgzfQ.tZKHpttVZjlFozwJLBznF1sHC9YiY9ezKUVio-bddAY";
-        String loggedUserJson = JsonLocalStorageHelper.getLoggedUserJson(token);
+
+
+        String loggedUserJson = JsonLocalStorageHelper.getLoggedUserJson(authToken);
         page.evaluate("jsonString => { localStorage.setItem('loggedUser', jsonString); }", loggedUserJson);
         page.reload();
 
