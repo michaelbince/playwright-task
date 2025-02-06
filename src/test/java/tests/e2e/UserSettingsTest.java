@@ -9,7 +9,7 @@ import pages.LoginPage;
 import pages.SettingsPage;
 import tests.ui.UIBaseTest;
 import tests.utils.TestDataProvider;
-import utils.JsonLocalStorageHelper;
+import tests.utils.JsonLocalStorageHelper;
 
 public class UserSettingsTest extends UIBaseTest {
     private LoginPage loginPage;
@@ -29,7 +29,8 @@ public class UserSettingsTest extends UIBaseTest {
             dataProvider = "validCredentialsToUpdate",
             dataProviderClass = TestDataProvider.class)
     public void testUpdateUserProfile(String email, String password, String userName, String bio, String image) throws Exception {
-        String loggedUserJson = JsonLocalStorageHelper.getLoggedUserJson();
+        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRvbV9tYXJ2b2xvQGV4YW1wbGUuY29tIiwiaWF0IjoxNzM4NzkyOTgzfQ.tZKHpttVZjlFozwJLBznF1sHC9YiY9ezKUVio-bddAY";
+        String loggedUserJson = JsonLocalStorageHelper.getLoggedUserJson(token);
         page.evaluate("jsonString => { localStorage.setItem('loggedUser', jsonString); }", loggedUserJson);
         page.reload();
 
