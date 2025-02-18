@@ -29,7 +29,7 @@ public abstract class UIBaseTest {
         if (playwright != null) playwright.close();
     }
 
-    protected Page getPage() {
+    public Page getPage() {
         return page;
     }
 }
