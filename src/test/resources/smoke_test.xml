@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="User Tests Suite" parallel="tests" thread-count="2">
 
-    <listeners>
-        <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener"/>
-    </listeners>
-
     <test name="API Tests">
         <classes>
             <class name="tests.api.UserSignInTest"/>

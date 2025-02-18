@@ -1,13 +1,16 @@
 package tests.ui;
 
+import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import com.microsoft.playwright.Page;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SignUpPage;
 import tests.utils.TestDataProvider;
 
+@Listeners(ReportPortalTestNGListener.class)
 public class UserSignUpTest extends UIBaseTest {
     private SignUpPage signUpPage;
     private HomePage homePage;
