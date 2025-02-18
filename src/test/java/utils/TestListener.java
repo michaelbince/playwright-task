@@ -1,15 +1,15 @@
 package utils;
 
+import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.ITestListener;
 import org.testng.ITestResult;
 import com.microsoft.playwright.Page;
 import tests.ui.UIBaseTest;
 
 import java.nio.file.Paths;
 
-public class TestListener implements ITestListener {
+public class TestListener extends ReportPortalTestNGListener {
     private static final Logger logger = LogManager.getLogger(TestListener.class);
 
     @Override

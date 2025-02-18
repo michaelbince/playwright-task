@@ -2,6 +2,7 @@ package pages;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.options.WaitForSelectorState;
 
 public class SignUpPage {
     private final Page page;
@@ -25,7 +26,7 @@ public class SignUpPage {
     }
 
     public void signUp(String username, String email, String password) {
-        userNameField.waitFor();
+        userNameField.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         userNameField.fill(username);
         emailField.fill(email);
         passwordField.fill(password);

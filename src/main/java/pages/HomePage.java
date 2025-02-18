@@ -23,7 +23,7 @@ public class HomePage {
     }
 
     public String getLoggedInUsername() {
-        loggedInUser.waitFor();
+        loggedInUser.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE).setTimeout(20000));
         return loggedInUser.textContent().trim();
     }
 
@@ -36,7 +36,7 @@ public class HomePage {
 
     public void goToSettings() {
         dropdownToggle.click();
-        settingsButton.waitFor();
+        settingsButton.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE).setTimeout(20000));
         settingsButton.click();
     }
 

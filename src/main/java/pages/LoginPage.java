@@ -2,6 +2,7 @@ package pages;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.options.WaitForSelectorState;
 
 public class LoginPage {
     private final Page page;
@@ -25,14 +26,14 @@ public class LoginPage {
     }
 
     public void login(String email, String password) {
-        emailField.waitFor();
+        emailField.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         emailField.fill(email);
         passwordField.fill(password);
         loginButton.click();
     }
 
     public String getErrorMessage() {
-        errorMessage.waitFor();
+        errorMessage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         return errorMessage.innerText();
     }
 }
