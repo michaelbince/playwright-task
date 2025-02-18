@@ -11,7 +11,6 @@ import pages.LoginPage;
 import pages.SettingsPage;
 import tests.utils.TestDataProvider;
 
-@Listeners(ReportPortalTestNGListener.class)
 public class UserUpdateTest extends UIBaseTest {
     private LoginPage loginPage;
     private HomePage homePage;

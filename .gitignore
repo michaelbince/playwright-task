@@ -77,3 +77,6 @@ node_modules/
 
 # Ignore ReportPortal configuration file
 reportportal.properties
+
+# Ignore tests evidence screenshots
+screenshots/

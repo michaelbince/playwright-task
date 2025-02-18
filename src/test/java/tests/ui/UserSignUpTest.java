@@ -10,7 +10,6 @@ import pages.HomePage;
 import pages.SignUpPage;
 import tests.utils.TestDataProvider;
 
-@Listeners(ReportPortalTestNGListener.class)
 public class UserSignUpTest extends UIBaseTest {
     private SignUpPage signUpPage;
     private HomePage homePage;

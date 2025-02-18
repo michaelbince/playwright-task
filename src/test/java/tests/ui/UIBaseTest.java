@@ -1,5 +1,6 @@
 package tests.ui;
 
+import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import com.microsoft.playwright.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -7,7 +8,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Optional;
 import utils.BrowserFactory;
 
-@Listeners(utils.TestListener.class)
+@Listeners(ReportPortalTestNGListener.class)
 public abstract class UIBaseTest {
     protected static final String baseUrl = "https://conduit-realworld-example-app.fly.dev";
     protected Playwright playwright;
