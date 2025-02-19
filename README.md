@@ -28,3 +28,5 @@ AC:
 1. TAF based on Playwright;
 
 2. All tests regarding task are passed;
+
+Examples: https://github.com/reportportal/examples-java
