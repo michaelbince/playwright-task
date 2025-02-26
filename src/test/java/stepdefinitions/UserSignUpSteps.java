@@ -16,6 +16,10 @@ public class UserSignUpSteps {
     private User user;
     private Response response;
     private UserApiClient userApiClient = new UserApiClient();
+    private final int FIRST_USER = 0;
+    private final int EMAIL = 0;
+    private final int PASSWORD = 1;
+    private final int USER_NAME = 2;
 
     @Before
     public void setupAPI() {
@@ -25,13 +29,13 @@ public class UserSignUpSteps {
     @Given("a user with random valid credentials")
     public void aUserWithRandomValidCredentials() {
         Object[][] credentials = TestDataProvider.provideRandomValidCredentials();
-        user = new User((String) credentials[0][0], (String) credentials[0][1], (String) credentials[0][2]);
+        user = new User((String) credentials[FIRST_USER][EMAIL], (String) credentials[FIRST_USER][PASSWORD], (String) credentials[FIRST_USER][USER_NAME]);
     }
 
     @Given("a registered user with valid credentials")
     public void aRegisteredUserWithValidCredentials() {
         Object[][] credentials = TestDataProvider.provideValidCredentials();
-        user = new User((String) credentials[0][0], (String) credentials[0][1], (String) credentials[0][2]);
+        user = new User((String) credentials[FIRST_USER][EMAIL], (String) credentials[FIRST_USER][PASSWORD], (String) credentials[FIRST_USER][USER_NAME]);
         userApiClient.signUp(user);
     }
 
