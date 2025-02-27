@@ -1,0 +1,2 @@
+email,password,errorMessage
+tom_marvolo@example.com,wrong_password,Wrong email/password combination
