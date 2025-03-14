@@ -25,30 +25,28 @@ public class UserSignUpTest extends UIBaseTest {
         logger.info("Setup completed");
     }
 
-    @Test(description = "Verify successful signup and correct display of logged-in username",
-            dataProvider = "randomValidCredentials",
-            dataProviderClass = TestDataProvider.class)
-    public void testSuccessfulSignUp(String email, String password, String userName) {
-        logger.info("Starting test: testSuccessfulSignUp");
-        logger.debug("Email: {}, Password: {}, User Name: {}", email, password, userName);
-
-        logger.info("Navigating to base URL...");
+    @Test(description = "Verify navigation to sign-up page")
+    public void testNavigateToSignUpPage() {
+        logger.info("Starting test: testNavigateToSignUpPage");
         page.navigate(baseUrl);
         logger.info("Navigated to base URL.");
-
-        logger.info("Going to sign-up page...");
         signUpPage.goToSignUpPage();
         logger.info("On sign-up page.");
+    }
 
-        logger.info("Signing up user...");
+    @Test(description = "Verify user sign-up process", dataProvider = "randomValidCredentials", dataProviderClass = TestDataProvider.class)
+    public void testSignUp(String email, String password, String userName) {
+        logger.info("Starting test: testSignUp");
         signUpPage.signUp(userName, email, password);
         logger.info("User signed up.");
+    }
 
+    @Test(description = "Verify logged-in username after sign-up", dataProvider = "randomValidCredentials", dataProviderClass = TestDataProvider.class)
+    public void testLoggedInUsername(String email, String password, String userName) {
+        logger.info("Starting test: testLoggedInUsername");
         String actualUserName = homePage.getLoggedInUsername();
         logger.debug("Actual User Name: {}", actualUserName);
         Assert.assertEquals(actualUserName, userName, "Logged in username should be the same as expected.");
         logger.info("Logged in username is correct.");
-
-        logger.info("Test testSuccessfulSignUp finished successfully.");
     }
 }

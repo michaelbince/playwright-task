@@ -5,6 +5,7 @@
         <classes>
             <class name="tests.api.UserSignInTest"/>
             <class name="tests.api.UserSignUpTest"/>
+            <class name="tests.api.UserUpdateTest"/>
         </classes>
     </test>
 
@@ -13,6 +14,8 @@
         <classes>
             <class name="tests.ui.UserSignInTest"/>
             <class name="tests.ui.UserSignUpTest"/>
+            <class name="tests.ui.UserUpdateTest"/>
+            <class name="tests.e2e.UserUpdateUsingApiWithUITest"/>
         </classes>
     </test>
 
@@ -21,6 +24,8 @@
         <classes>
             <class name="tests.ui.UserSignInTest"/>
             <class name="tests.ui.UserSignUpTest"/>
+            <class name="tests.ui.UserUpdateTest"/>
+            <class name="tests.e2e.UserUpdateUsingApiWithUITest"/>
         </classes>
     </test>
 
